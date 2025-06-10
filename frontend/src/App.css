@@ -1,0 +1,55 @@
+/* ---------------------------------------------
+   Global overrides / Vite template cleanup
+--------------------------------------------- */
+#root {
+  text-align: start !important;
+  margin: 0 auto;
+}
+
+.card-body,
+form,
+label,
+.input-group-text {
+  text-align: start;
+}
+
+/* Cuando el landing (hero-bg) está presente queremos que
+   el root ocupe todo el ancho y pierda el padding / centrado
+   que hereda del template Vite. También anulamos el display:flex
+   que viene de index.css (body) para que el degradado cubra todo. */
+#root:has(.hero-bg) {
+  display: block;      /* anula el flex del body */
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ---------------------------------------------
+   Tipografía y colores corporativos
+--------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* ---------- Hero ---------- */
+.hero-bg {
+  background: linear-gradient(135deg, #0064ff 0%, #1e90ff 100%);
+  overflow: hidden;
+}
+
+.hero-img {
+  max-width: 380px;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+.drop-shadow {
+  text-shadow: 0 3px 8px rgba(0,0,0,.3);
+}
