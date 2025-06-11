@@ -1,6 +1,5 @@
 // --- AuthResetPages.jsx ----------------------------------------------------
 // Contiene dos componentes: ForgotPasswordPage y ResetPasswordPage.
-// Puedes mantenerlos juntos o separarlos en archivos individuales si prefieres
 // (ForgotPasswordPage.jsx y ResetPasswordPage.jsx). Ambos están listos para
 // usarse con react-router-dom v6.
 

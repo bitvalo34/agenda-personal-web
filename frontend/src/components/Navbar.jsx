@@ -12,12 +12,6 @@ import { toast } from 'react-toastify';
  *    absoluto y deja ver el hero de la landing page.  En el resto de páginas
  *    basta con no pasar la prop y tendrá fondo azul + sombra como siempre.
  *
- * Ejemplos de uso
- *  <AppNavbar transparent />     // en LandingPage.jsx
- *  <AppNavbar />                 // en todas las rutas protegidas
- *
- * El componente mantiene la lógica de autenticación y cierre de sesión que ya
- * existía, pero ahora admite la presentación "hero" sin duplicar código.
  */
 export default function AppNavbar({ transparent = false }) {
   const { token, logout } = useContext(AuthContext);
@@ -47,8 +41,15 @@ export default function AppNavbar({ transparent = false }) {
       <Container>
         {/* Branding */}
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center fw-bold">
-          <span className="me-2" style={{ fontSize: '1.5rem' }}>📒</span>
-          Agenda Personal
+          <img
+            src="/calendario.png"             
+            alt="Agenda Personal Logo"
+            width="32"
+            height="32"
+            className="me-2"
+            style={{ objectFit: 'contain' }}
+          />
+          <span>Agenda Personal</span>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="navbar-nav" />

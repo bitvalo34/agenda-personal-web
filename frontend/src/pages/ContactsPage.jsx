@@ -36,10 +36,9 @@ export default function ContactsPage() {
     }
   };
 
-    // Lanza la carga pero sin devolver la Promesa al efecto (React 19 no acepta values)
+    // Lanza la carga pero sin devolver la Promesa al efecto
   useEffect(() => {
     loadData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tagFilter]);
 
   /* ------------- Filtro en memoria por nombre ------------- */
@@ -60,7 +59,7 @@ export default function ContactsPage() {
   /* ---------------------- Render UI ---------------------- */
   return (
     <>
-      {/* 🔵 Barra superior */}
+      {/* Barra superior */}
       <Row className="g-3 align-items-center mb-4 flex-column flex-lg-row">
         {/* Título */}
         <Col xs="auto">
@@ -94,7 +93,7 @@ export default function ContactsPage() {
         </Col>
       </Row>
 
-      {/* 🟢 Filtros de etiqueta */}
+      {/* Filtros de etiqueta */}
       <div className="mb-3">
         <ButtonGroup>
           <Button
@@ -115,7 +114,7 @@ export default function ContactsPage() {
         </ButtonGroup>
       </div>
 
-      {/* 🗂️  Grid de tarjetas */}
+      {/*  Grid de tarjetas */}
       <Row xxl={3} lg={3} md={2} sm={1} className="g-4">
         {filtered.map((c) => (
           <Col key={c.id}>

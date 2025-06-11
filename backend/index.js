@@ -8,7 +8,6 @@ const cors    = require('cors');
 const crypto     = require('crypto');
 const nodemailer = require('nodemailer');
 
-/* ───── NUEVAS dependencias ───── */
 const multer  = require('multer');
 const upload  = multer({ dest: '/tmp' });
 const ExcelJS = require('exceljs');
@@ -24,6 +23,11 @@ const transporter = nodemailer.createTransport({
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS
   }
+});
+
+transporter.verify(err => {
+  if (err) console.error('❌  SMTP no disponible:', err);
+  else     console.log('✉️  SMTP listo para enviar');
 });
 
 /* ─────────────  CORS  ───────────── */

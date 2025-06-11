@@ -10,7 +10,7 @@ import {
   FileText
 } from 'react-bootstrap-icons';
 import { toast } from 'react-toastify';
-import api from '../services/api';              // ⬅️ importa el wrapper de Axios
+import api from '../services/api';              
 
 export default function ContactCard({ contact, onDelete }) {
   const {

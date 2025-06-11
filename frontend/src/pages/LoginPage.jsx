@@ -18,7 +18,6 @@ export default function LoginPage() {
     try {
       setLoading(true);
       const { data } = await api.post('/auth/login', { email, password });
-      // pass remember flag so AuthContext decides where to persist the token
       login(data.token, remember);
       navigate('/contacts');
     } catch (error) {
