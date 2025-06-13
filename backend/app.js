@@ -13,6 +13,7 @@ const upload  = multer({ dest: '/tmp' });
 const ExcelJS = require('exceljs');
 
 const app = express();
+
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -419,6 +420,5 @@ app.use((err, _req, res, _next) => {
   console.error('🔥  Error interno:', err);
   res.status(500).json({ message: 'Error interno' });
 });
-
 
 module.exports = app; 
