@@ -31,9 +31,23 @@ transporter.verify(err => {
   else     console.log('✉️  SMTP listo para enviar');
 });
 
-/* ─────────────  CORS  ───────────── */
-const FRONTEND = process.env.DEBUG_URL || 'http://localhost:5173';
-app.use(cors({ origin: FRONTEND, credentials: true }));
+// ─────────────  CORS  ─────────────
+const allowedOrigins = [
+  process.env.DEBUG_URL,               // e.g. http://localhost:5173
+  'https://serviciointegral.mx'       // tu frontend en Hostinger
+].filter(Boolean);
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // permitir peticiones sin origin (Postman, tests)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    callback(new Error(`CORS denegado para el origen ${origin}`));
+  },
+  credentials: true
+}));
 
 /* ─────────────  MySQL pool  ───────────── */
 const pool = mysql.createPool({
