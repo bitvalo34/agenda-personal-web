@@ -47,6 +47,7 @@ const pool = mysql.createPool({
 /* ─────────────  AUTH  ───────────── */
 app.post('/auth/login', async (req, res, next) => {
   try {
+    console.log('Body recibido:', req.body);
     const { email, password } = req.body;
 
     const [rows] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
