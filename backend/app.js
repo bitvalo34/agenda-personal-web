@@ -34,7 +34,7 @@ transporter.verify(err => {
 // ─────────────  CORS  ─────────────
 const allowedOrigins = [
   process.env.DEBUG_URL,               // e.g. http://localhost:5173
-  'https://serviciointegral.mx'       // tu frontend en Hostinger
+  'https://www.serviciointegral.mx'       // tu frontend en Hostinger
 ].filter(Boolean);
 
 app.use(cors({
